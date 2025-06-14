@@ -1,11 +1,13 @@
 import streamlit as st
 
-# Judul aplikasi
-st.title("Aplikasi Streamlit Sederhana")
+# Configure Streamlit app
+st.set_page_config(page_title="Leuser Ecosystem Dashboard", layout="wide")
 
-# Input dari pengguna
-nama = st.text_input("Masukkan nama Anda:")
+# Define pages
+pg = st.navigation([
+    st.Page("pages/forest_loss_predictions.py", title="Forest Loss Predictions"),
+    st.Page("pages/data_explanation.py", title="Data Explanation")
+])
 
-# Tombol submit
-if st.button("Kirim"):
-    st.success(f"Halo, {nama}! Selamat datang di Streamlit.")
+# Run the selected page
+pg.run()
